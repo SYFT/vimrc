@@ -20,5 +20,7 @@ set clipboard=unnamedplus
 
 " instant_markdown
 let g:instant_markdown_slow = 1
-filetype plugin on
+filetype plugin indent on
 
+" recognize fortran file
+au BufNewFile,BufRead *.inc set filetype=fortran
