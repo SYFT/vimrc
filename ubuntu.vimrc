@@ -53,6 +53,7 @@ inoremap <C-l> <Right>
 color desert
 set cursorline
 set cursorcolumn
+set cc=80
 
 " copy and paste
 set clipboard=unnamedplus
@@ -60,8 +61,25 @@ set clipboard=unnamedplus
 " syntax
 syntax on
 
+nm <C-P> :se invpaste paste?<CR>                                                
+                                                                                
+" show status line                                                              
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+set laststatus=2 
+
 " indent
-au BufNewFile,BufRead *.py,*.cpp,*.java
+au BufNewFile,BufRead *.py                                                      
+\ set tabstop=2                                                                 
+\ softtabstop=2                                                                 
+\ shiftwidth=2                                                                  
+\ textwidth=80                                                                  
+\ noexpandtab                                                                   
+\ autoindent                                                                    
+\ fileformat=unix                                                               
+\ encoding=utf-8                                                                
+\ number 
+
+au BufNewFile,BufRead *.cpp,*.java
 \ set tabstop=4 
 \ softtabstop=4 
 \ shiftwidth=4 
